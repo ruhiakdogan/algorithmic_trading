@@ -9,7 +9,7 @@ from smtplib import SMTP
 
 cc = "xrpusdt"
 socket = f"wss://stream.binance.com:9443/ws/{cc}@depth10"
-socket2 = f"wss://ws.bitmex.com/realtime?subscribe=orderBook,orderBook10:XRPUSDT"
+socket2 = f"wss://ws.bitmex.com/realtime?subscribe=orderBook,orderBook10:{cc}"
 
 binance_ask = 0
 binance_bid = 0
@@ -62,11 +62,11 @@ def bitmex_on_message(ws, message):
             content = "Subject: {0}\n\n{1}".format(subcjet, message)
 
             # Hesap Bilgileri
-            myMailAdress = "akdoganruhi@gmail.com"
-            password = "cfstzbnrmumrddqq"
+            myMailAdress = "mail@gmail.com"
+            password = "password"
 
             # Kime Gönderilecek Bilgisi
-            sendTo = "akdoganruhi@gmail.com"
+            sendTo = "mail@gmail.com"
 
             mail = SMTP("smtp.gmail.com", 587)
             mail.ehlo()
